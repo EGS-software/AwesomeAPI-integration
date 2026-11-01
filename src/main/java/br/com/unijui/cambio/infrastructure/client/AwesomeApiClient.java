@@ -11,9 +11,11 @@ public class AwesomeApiClient {
 
     private final RestClient restClient;
 
-    public AwesomeApiClient(RestClient.Builder restClientBuilder) {
-        // Define a URL base da API externa
-        this.restClient = restClientBuilder.baseUrl("https://economia.awesomeapi.com.br/json/last").build();
+    public AwesomeApiClient() {
+        // Inicializa o RestClient diretamente sem depender da injeção do Spring
+        this.restClient = RestClient.builder()
+                .baseUrl("https://economia.awesomeapi.com.br/json/last")
+                .build();
     }
 
     // Aplica o padrão Retry e Circuit Breaker para tolerância a falhas (Req 4)

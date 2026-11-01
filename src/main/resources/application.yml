@@ -2,8 +2,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/cambio_db
-    username: postgres
-    password: sua_senha_aqui
+    username: mauro
+    password:
   jpa:
     hibernate:
       ddl-auto: update
