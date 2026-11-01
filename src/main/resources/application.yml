@@ -1,0 +1,23 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cambio_db
+    username: postgres
+    password: sua_senha_aqui
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+resilience4j:
+  retry:
+    instances:
+      awesomeApi:
+        max-attempts: 3 # Tenta 3 vezes antes de falhar
+        wait-duration: 2s # Espera 2 segundos entre tentativas
+  circuitbreaker:
+    instances:
+      awesomeApi:
+        sliding-window-size: 5
+        failure-rate-threshold: 50 # Abre o circuito se 50% das últimas 5 chamadas falharem
+        wait-duration-in-open-state: 15s
