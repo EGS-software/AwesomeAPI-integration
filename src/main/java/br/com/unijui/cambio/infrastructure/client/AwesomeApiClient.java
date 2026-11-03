@@ -5,6 +5,7 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestClient;
 
 import java.util.Map;
@@ -14,10 +15,9 @@ public class AwesomeApiClient {
 
     private final RestClient restClient;
 
-    public AwesomeApiClient() {
-        // Inicializa o RestClient diretamente sem depender da injeção do Spring
+    public AwesomeApiClient(@Value("${api.awesome.url:https://economia.awesomeapi.com.br/json/last}") String baseUrl) {
         this.restClient = RestClient.builder()
-                .baseUrl("https://economia.awesomeapi.com.br/json/last")
+                .baseUrl(baseUrl)
                 .build();
     }
 
