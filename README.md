@@ -80,5 +80,5 @@ Os testes foram desenvolvidos utilizando **WireMock** para simular o comportamen
 ## 📊 Classificação da Integração (Avaliação)
 
 * **Contexto de Negócio:** Consumo de serviços de terceiros (B2B / Information Portal) no domínio financeiro. A nossa aplicação atua como cliente, buscando dados de mercado atualizados para aplicar regras de precificação internas.
-* **Padrão Arquitetural:** **Cliente-Servidor**. O nosso sistema consome os recursos da API REST disponibilizada pelo servidor da AwesomeAPI. Internamente, utilizamos a **Arquitetura em Camadas (Layered Architecture)** com uma **Anti-Corruption Layer (ACL)** isolando o cliente HTTP.
-* **Padrão de Comunicação:** **Síncrono (Request-Reply)**. A comunicação é feita via protocolo HTTP (REST), onde a aplicação realiza a requisição para a AwesomeAPI e a thread aguarda a resposta para processar o cálculo e devolver o resultado final.
+* **Padrão Arquitetural:** **Point-to-Point**. O nosso sistema consome os recursos da API REST disponibilizada pelo servidor da AwesomeAPI. Internamente, utilizamos a **Arquitetura em Camadas (Layered Architecture)** com uma **Anti-Corruption Layer (ACL)** isolando o cliente HTTP.
+* **Padrão de Comunicação:** **Chamada a procedimento remoto**. A comunicação é feita via protocolo HTTP (REST), onde a aplicação realiza a requisição para a AwesomeAPI e a thread aguarda a resposta para processar o cálculo e devolver o resultado final.
